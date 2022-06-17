@@ -48,17 +48,20 @@ const salsicha = new Animal('preto', 'Salsicha')
  // removeClass(classe), remove a classe a todos os elemento
 
 
-function Dom(tagSelecionada){
-  const tag = tagSelecionada
-  const listas = document.querySelector(tag)
-  this.elements = listas.
-  this.addClass = function() {
-  const addClasse = tagSelecionada.classList.add('ativo')
-  },
-  this.removeClass = function() {
-    const removerClasse = tagSelecionada.classList.remove('ativo')
-    }
-
+ function Dom(seletor) {
+  const elementList = document.querySelectorAll(seletor);
+  this.elements = elementList;
+  this.addClass = function(classe) {
+    elementList.forEach((element) => {
+      element.classList.add(classe);
+    })
+  }
+  this.removeClass = function(classe) {
+    elementList.forEach((element) => {
+      element.classList.remove(classe);
+    })
+  }
 }
 
-const li = new Dom('li')
+const listaItens = new Dom('li');
+const ul = new Dom('ul');
